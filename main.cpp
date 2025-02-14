@@ -117,9 +117,9 @@ public:
         else if (i==length-1) {
             return dellast(); // if the index you chose is exactly the last node, you can just use delete last
         }
-        Node<T> *prev = get(i-1); // gets previous through subtracting one from chosen index and using get method to take it
-        Node<T> *temp = prev->next; // sets temp to where your index is so you can move your prev
-        prev->next = temp->next; // move next of prev
+        Node<T> *prev = get(i-1); // gets previous through subtracting one from chosen index and using get method to take it so you can use to replace index you chose to remove
+        Node<T> *temp = prev->next; // sets temp to where your index is so you can remove it
+        prev->next = temp->next; // moves previous next to the next node of where your index was set to so it can replace it when the index is deleted
         delete temp; // deleteing temp
         length--; // takes out from length the node that was deleted
     }
@@ -160,8 +160,9 @@ int main() {
 
 
     ll->reverselist();
+    ll->add(s3);
     ll->print();
 
-    ll->deleteNode(0);
+    ll->deleteNode(1);
     ll->print();
 }
