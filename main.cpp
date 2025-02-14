@@ -106,8 +106,21 @@ public:
         length--;
     }
 
-    void deleteNode(int index) {
+    void deleteNode(int i) {
        //TODO:Write the function to delete at the given index. Reuse the pre-written functions for edge cases. Account for missing index.
+        if (i<0 || i>=length) {
+            return;
+        }
+        if (i==0) {
+            return delfirst();
+        }
+        if (i==length-1) {
+            return dellast();
+        }
+        Node<T> *prev = get(index - 1);
+        Node<T> *temp = prev->next;
+        prev->next = temp->next;
+        delete temp;
     }
 
    void reverselist(){
@@ -144,7 +157,10 @@ int main() {
     ll->delfirst();
     ll->print();
 
-    ll->print();
+
     ll->reverselist();
+    ll->print();
+
+    ll->deleteNode(0);
     ll->print();
 }
