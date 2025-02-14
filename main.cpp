@@ -121,7 +121,7 @@ public:
         Node<T> *temp = prev->next; // sets temp to where your index is so you can move your prev
         prev->next = temp->next; // move next of prev
         delete temp; // deleteing temp
-        length--; // takes out lenght that was deleted
+        length--; // takes out from length the node that was deleted
     }
 
    void reverselist(){
